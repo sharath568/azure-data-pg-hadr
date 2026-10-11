@@ -1,0 +1,76 @@
+{
+  "pghadr_version": "0.1.0",
+  "kind": "dr",
+  "run_id": "dr-20261011T213130Z-0e1a8a",
+  "started": "2026-10-11T21:31:30+00:00",
+  "params": {
+    "interval_s": 0.2,
+    "warmup_s": 120.0,
+    "replica_interval_s": 1.0
+  },
+  "action": {
+    "name": "promote replica (forced)",
+    "t_start": 120.01174637500662,
+    "t_end": 186.78838400001405,
+    "error": null,
+    "duration_s": 66.777
+  },
+  "state_before": {
+    "name": "pghadr-x4baq3gxjvoxg-drw",
+    "state": "Ready",
+    "location": "West US 3",
+    "version": "16",
+    "sku": "Standard_D2ds_v5",
+    "tier": "GeneralPurpose",
+    "zone": "2",
+    "ha_mode": "Disabled",
+    "ha_state": "NotEnabled",
+    "standby_zone": null,
+    "fqdn": "pghadr-x4baq3gxjvoxg-drw.postgres.database.azure.com",
+    "replication_role": "GeoAsyncReplica"
+  },
+  "state_after": {
+    "name": "pghadr-x4baq3gxjvoxg-drw",
+    "state": "Ready",
+    "location": "West US 3",
+    "version": "16",
+    "sku": "Standard_D2ds_v5",
+    "tier": "GeneralPurpose",
+    "zone": "2",
+    "ha_mode": "Disabled",
+    "ha_state": "NotEnabled",
+    "standby_zone": null,
+    "fqdn": "pghadr-x4baq3gxjvoxg-drw.postgres.database.azure.com",
+    "replication_role": "Primary"
+  },
+  "summary": {
+    "attempts": 932,
+    "ok": 932,
+    "failed": 0,
+    "availability_pct": 100.0,
+    "duration_s": 186.634,
+    "latency_ms": {
+      "p50": 25.31,
+      "p95": 35.36,
+      "p99": 40.31,
+      "max": 257.51
+    },
+    "max_write_gap_s": null,
+    "outages": [],
+    "switches": []
+  },
+  "notes": [],
+  "dr": {
+    "cutoff_t": 120.0117,
+    "acknowledged_before_cutoff": 599,
+    "present_on_replica": 599,
+    "missing": [],
+    "rpo_s": 0.0,
+    "last_replicated_t": 119.8402,
+    "replication_stopped_t": 127.032,
+    "holes": [],
+    "rto_s": 16.325,
+    "replica_writable_t": 136.33633,
+    "replicated_after_cutoff_s": 7.02
+  }
+}

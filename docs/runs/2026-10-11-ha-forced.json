@@ -1,0 +1,107 @@
+{
+  "pghadr_version": "0.1.0",
+  "kind": "ha",
+  "run_id": "ha-20261011T211038Z-7d9cfc",
+  "started": "2026-10-11T21:10:38+00:00",
+  "params": {
+    "interval_s": 0.2,
+    "warmup_s": 60.0,
+    "settle_s": 60.0
+  },
+  "action": {
+    "name": "forced-failover",
+    "t_start": 60.01054975000443,
+    "t_end": 423.6433934580127,
+    "error": null,
+    "duration_s": 363.633
+  },
+  "state_before": {
+    "name": "pghadr-x4baq3gxjvoxg",
+    "state": "Ready",
+    "location": "Central US",
+    "version": "16",
+    "sku": "Standard_D2ds_v5",
+    "tier": "GeneralPurpose",
+    "zone": "2",
+    "ha_mode": "ZoneRedundant",
+    "ha_state": "Healthy",
+    "standby_zone": "1",
+    "fqdn": "pghadr-x4baq3gxjvoxg.postgres.database.azure.com",
+    "replication_role": "Primary"
+  },
+  "state_after": {
+    "name": "pghadr-x4baq3gxjvoxg",
+    "state": "Ready",
+    "location": "Central US",
+    "version": "16",
+    "sku": "Standard_D2ds_v5",
+    "tier": "GeneralPurpose",
+    "zone": "1",
+    "ha_mode": "ZoneRedundant",
+    "ha_state": "Healthy",
+    "standby_zone": "2",
+    "fqdn": "pghadr-x4baq3gxjvoxg.postgres.database.azure.com",
+    "replication_role": "Primary"
+  },
+  "summary": {
+    "attempts": 2337,
+    "ok": 2279,
+    "failed": 58,
+    "availability_pct": 97.518,
+    "duration_s": 483.626,
+    "latency_ms": {
+      "p50": 28.05,
+      "p95": 34.17,
+      "p99": 41.32,
+      "max": 1446.44
+    },
+    "max_write_gap_s": 24.06,
+    "outages": [
+      {
+        "first_fail_t": 69.6066,
+        "last_fail_t": 90.0088,
+        "failed_attempts": 58,
+        "last_ok_before_t": 69.433,
+        "first_ok_after_t": 93.4934,
+        "errors": [
+          [
+            "OperationalError: connection failed: connection to server at \"52.230.185.172\", port 5432 failed: could not receive data from server: Co...",
+            53
+          ],
+          [
+            "ConnectionTimeout: connection timeout expired",
+            4
+          ],
+          [
+            "OperationalError: consuming input failed: SSL error: unexpected eof while reading",
+            1
+          ]
+        ],
+        "write_gap_s": 24.06,
+        "recovered": true
+      }
+    ],
+    "switches": [
+      {
+        "t": 93.2029,
+        "before": [
+          "10.6.0.5",
+          "2026-10-11 20:53:30.632601+00"
+        ],
+        "after": [
+          "10.6.0.4",
+          "2026-10-11 21:08:04.220607+00"
+        ]
+      }
+    ]
+  },
+  "notes": [],
+  "loss": {
+    "acknowledged": 2279,
+    "present": 2279,
+    "lost": [],
+    "in_doubt": 1,
+    "in_doubt_committed": 0,
+    "ok": true
+  }
+}
