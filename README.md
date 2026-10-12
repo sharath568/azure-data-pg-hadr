@@ -90,6 +90,16 @@ Two things here are easy to get wrong:
    acknowledged write; a cross-region replica can. This run lost nothing
    because the load was light, not because the design guarantees it.
 
+"Writable" didn't mean "stable" straight away. The replica probe (one write
+per second, in
+[`replica-samples.jsonl`](docs/runs/2026-10-11-dr-forced-promote.replica-samples.jsonl))
+shows the promoted server accepting writes from about 16 s, then dropping the
+connection with `terminating connection due to administrator command` at
+about 25 s and refusing connections until about 32 s. Its
+`pg_postmaster_start_time()` changed from 21:28:17 to 21:34:04 UTC, so it
+restarted once after it first became writable. Keep retrying for the first
+minute after a promote.
+
 The replica was writable before the control-plane call finished, just like
 the HA failovers. An application also has to switch its connection string to
 the replica, because a standalone promote gives it a new name. Azure's
